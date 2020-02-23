@@ -88,7 +88,10 @@ export default {
   }
 };
 </script>
-<style lang="less" scope>
+<style lang="less" scoped>
+.category{
+  background: #fff;
+}
 .category-item {
   flex: 0 0 25%;
   text-align: center;
@@ -108,10 +111,12 @@ export default {
 .category >>> .swiper-slide {
   display: flex;
   flex-flow: wrap;
+ 
 }
 .category >>> .swiper-pagination {
  position: relative;
  bottom: 0;
+ background: #fff;
 }
 
 </style>

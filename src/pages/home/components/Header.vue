@@ -1,16 +1,32 @@
 <template>
   <div class="header">
-    <div class="header-left"><span class="iconfont">&#xe609;</span></div>
-    <div class="header-input"><span class="iconfont">&#xe629;</span>输入城市/景点/游玩主题</div>
-    <div class="header-right">北京<span class="iconfont">&#xe631;</span></div>
+    <div class="header-left">
+      <span class="iconfont">&#xe609;</span>
+    </div>
+    <div class="header-input">
+      <span class="iconfont">&#xe629;</span>输入城市/景点/游玩主题
+    </div>
+    <div class="header-right" @click="handleToCity">
+      {{city}}
+      <span class="iconfont">&#xe631;</span>
+    </div>
   </div>
 </template>  
 <script>
+import {mapState} from 'vuex'
 export default {
-  name: "HomeHeader"
-};
+  name: 'HomeHeader',
+  computed:{
+      ...mapState('city',['city']),
+  },
+  methods: {
+    handleToCity() {
+      this.$router.push('/city')
+    }
+  }
+}
 </script>
-<style lang="less" scope>
+<style lang="less" scoped>
 .header {
   height: 44px;
   background: #00bcd4;
@@ -31,11 +47,11 @@ export default {
   .header-input {
     flex: 1;
     background-color: #fff;
-    color:#e4e7ea;
+    color: #e4e7ea;
     margin: 7px 0;
     line-height: 30px;
     border-radius: 3px;
-    span{
+    span {
       padding: 0 10px;
     }
   }
